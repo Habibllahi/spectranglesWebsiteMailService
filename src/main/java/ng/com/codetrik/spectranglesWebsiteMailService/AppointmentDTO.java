@@ -15,5 +15,5 @@ public class AppointmentDTO {
     private String workType;
     private String country;
     private String jobDetails;
-    
+
 }
