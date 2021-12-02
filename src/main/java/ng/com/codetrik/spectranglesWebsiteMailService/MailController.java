@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
-@RequestMapping(path = "/",produces = {MediaType.APPLICATION_JSON_VALUE},consumes = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = "",produces = {MediaType.APPLICATION_JSON_VALUE},consumes = {MediaType.APPLICATION_JSON_VALUE})
 public class MailController {
     @Autowired
     MailService mailService;
 
-    @GetMapping()
+    @GetMapping("/")
     public ResponseEntity<String> simple(){
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
