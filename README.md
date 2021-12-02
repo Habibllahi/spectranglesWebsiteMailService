@@ -1,0 +1,2 @@
+# spectranglesWebsiteMailService
+Spectrangle mail service
