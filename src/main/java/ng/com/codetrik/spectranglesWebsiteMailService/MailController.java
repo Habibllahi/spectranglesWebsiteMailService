@@ -7,23 +7,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "",produces = {MediaType.APPLICATION_JSON_VALUE},consumes = {MediaType.APPLICATION_JSON_VALUE})
 public class MailController {
     @Autowired
     MailService mailService;
 
     @GetMapping("/")
-    public ResponseEntity<String> simple(){
+    public ResponseEntity<String> base(){
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
-    @PostMapping("api/appointment")
+    @PostMapping("/api/appointment")
     public ResponseEntity<?> processMail(@RequestBody AppointmentDTO appointment){
 
         mailService.sendAppointmentMail(appointment);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("api/application")
+    @PostMapping("/api/application")
     public ResponseEntity<?> processMail(@RequestBody ApplicationDTO application){
         mailService.sendApplicationMail(application);
         return new ResponseEntity<>(HttpStatus.OK);
